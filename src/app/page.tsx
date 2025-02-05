@@ -7,6 +7,13 @@ import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { HydrateClient } from "~/trpc/server";
 import FeedbackCard from "./_components/FeedbackCard";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "~/components/ui/carousel";
 
 export default async function Home() {
   // const hello = await api.post.hello({ text: "from tRPC" });
@@ -92,6 +99,123 @@ export default async function Home() {
             <Button size={"lg"}>Deixar um depoimento</Button>
           </div>
         </section>
+
+        <section
+          id="about"
+          className="flex h-full w-full flex-col items-center p-[5%] text-gray-800"
+        >
+          <div className="flex flex-col items-center gap-4 text-center">
+            <p className="text-2xl font-bold">Por que nos escolher?</p>
+            <p className="text-xs text-gray-800/70">
+              Os depoimentos acima não são o suficiente? Não tem problema,
+              motivos são o que não faltam para você nos escolher!
+            </p>
+          </div>
+
+          <div className="max-w-screen flex w-full items-center justify-center py-6">
+            <Carousel className="w-full max-w-[50vw]">
+              <CarouselContent>
+                <CarouselItem className="flex w-full items-center justify-center">
+                  <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+                </CarouselItem>
+                <CarouselItem className="flex w-full items-center justify-center">
+                  <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+                </CarouselItem>
+                <CarouselItem className="flex w-full items-center justify-center">
+                  <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+          <p className="w-2/3 text-center text-xs">
+            Contamos com um ambiente acochegante e bem climatizado.
+          </p>
+
+          <div className="flex flex-col items-center gap-2 pt-12 text-center">
+            <p>Temos material e maquinário de tecnologia de ponta.</p>
+            <div className="flex flex-row gap-4">
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+            </div>
+            <p className="text-xs opacity-70">
+              Aqui sua roupa recebe tratamento especial!
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center gap-2 pt-12 text-center">
+            <p>Somos os mais profissionais da região.</p>
+            <div className="flex flex-row gap-4">
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+            </div>
+            <p className="text-xs opacity-70">
+              Investimos em tecnologias como site prórpio, google maps, e muito
+              mais pois acreditamos no potencial que a tecnologia traz.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center gap-2 pt-12 text-center">
+            <p>Nosso atendimento ultrapassa fronteiras.</p>
+            <div className="flex flex-row gap-4">
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+            </div>
+            <p className="text-xs opacity-70">
+              Temos clientes em países como: Portugal, Argentina, Estado Unidos,
+              Canadá e mais...
+            </p>
+            <p className="text-[10px] opacity-60">
+              Eles esperam vir visitar seus familiares aqui no brasil para
+              trazer roupas para concerto.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="map"
+          className="flex h-full w-full flex-col items-center p-[5%] text-gray-800"
+        >
+          <div className="flex w-full flex-col gap-2 text-center">
+            <p className="text-xl font-bold">Ainda restam dúvidas?</p>
+            <p className="opacity-70">Acreditamos que não, né?</p>
+          </div>
+
+          <div className="flex flex-col items-center gap-4 pt-12 text-center">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2794211326436!2d-39.30242952238619!3d-7.3224783720135065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7a177dd93278849%3A0x1d6f92ae1929b576!2sAteli%C3%AA%20de%20Costura%20Pres%20Ponto!5e0!3m2!1spt-BR!2sbr!4v1738780397170!5m2!1spt-BR!2sbr"
+              className="h-[250px] w-[250px] rounded-lg"
+              loading="lazy"
+            ></iframe>
+            <p>
+              Então vem nos visitar na sua melhor beca, é só seguir o mapa
+              acima!
+            </p>
+            <p className="text-xs opacity-70">
+              Ou traga ela pra que a gente concerte-a. :)
+            </p>
+          </div>
+        </section>
+
+        <footer
+          id="footer"
+          className="text-text bg-main mt-12 flex h-full w-full flex-col items-center gap-2 p-[5%] py-12 text-white"
+        >
+          <Image
+            alt={"Logomarca"}
+            src={"/logo.svg"}
+            width={175 / 2}
+            height={72 / 2}
+          />
+          <p className="text-xs">@2025 todos os direitos reservados</p>
+          <p className="text-[10px] opacity-70">
+            Design e desenvolvimento por Emmanuel Rodrigues
+          </p>
+        </footer>
       </main>
     </HydrateClient>
   );
