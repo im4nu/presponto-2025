@@ -2,7 +2,7 @@
 
 // import { LatestPost } from "~/app/_components/post";
 // import { api, HydrateClient } from "~/trpc/server";
-import { ChevronDoubleDownIcon } from "@heroicons/react/16/solid";
+import { Bars3Icon, ChevronDoubleDownIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { HydrateClient } from "~/trpc/server";
@@ -23,6 +23,17 @@ export default async function Home() {
   return (
     <HydrateClient>
       <main className="josefin-sans flex h-full min-h-screen flex-col">
+        <nav className="fixed left-0 top-0 flex w-full items-center justify-between bg-white/20 px-12 py-6 backdrop-blur-md">
+          <Image
+            alt={"Logomarca"}
+            src={"/logo.svg"}
+            width={175 / 2}
+            height={72 / 2}
+          />
+
+          <Bars3Icon className="h-8 w-8 text-white" />
+        </nav>
+
         <section
           id="home"
           className="flex min-h-screen w-full flex-col items-center justify-evenly bg-hero bg-cover bg-no-repeat px-[5%] pt-[15%] text-white"
