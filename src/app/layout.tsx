@@ -6,9 +6,9 @@ import { type Metadata } from "next";
 import { TRPCReactProvider } from "~/trpc/react";
 
 export const metadata: Metadata = {
-  title: "Costuteira em barbalha | Cláudia do pres ponto",
+  title: "Costuteira em barbalha | Cláudia ateliê pres ponto",
   description:
-    "Precisando de costureira em barbalha e região? Cláudia do pres ponto é a melhor opção para você!",
+    "Precisando de costureira em barbalha e região? O ateliê pres ponto é a melhor opção para você!",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
