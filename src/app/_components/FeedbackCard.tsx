@@ -17,12 +17,12 @@ export default function FeedbackCard({ inverted }: PostProps) {
 
       <div className="flex w-[40%] flex-col items-center justify-start gap-6 py-4">
         <div className="flex w-full flex-col">
-          <p className="text-2xl font-bold">Emmanuel Rodrigues</p>
+          <p className="text-2xl font-bold">Nome do cliente</p>
           <p className="text-xs text-white/70">01/02/2025</p>
         </div>
 
         <div className="flex w-full flex-col">
-          <p className="text-lg">Avaliação</p>
+          <p className="text-lg font-bold">Avaliação</p>
           <p>5 Estelas</p>
           <div className="flex">
             {new Array(5).fill(0).map((_, i) => (
@@ -32,7 +32,7 @@ export default function FeedbackCard({ inverted }: PostProps) {
         </div>
 
         <div className="flex w-full flex-col">
-          <p className="text-2xl font-bold">Já é cliente a:</p>
+          <p className="text-lg font-bold">Já é cliente a:</p>
           <p>Mais de 5 anos</p>
         </div>
       </div>
