@@ -9,7 +9,7 @@ export default {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
       backgroundImage: {
-        hero: "url('public/hero.png')",
+        hero: "url('/hero.png')",
       },
       colors: {
         main: "#8C5B62",

@@ -15,7 +15,7 @@ export default async function Home() {
 
   return (
     <HydrateClient>
-      <main className="josefin-sans flex h-full h-screen min-h-screen flex-col">
+      <main className="josefin-sans flex h-full min-h-screen flex-col">
         <section
           id="home"
           className="flex min-h-screen w-full flex-col items-center justify-evenly bg-hero bg-cover bg-no-repeat px-[5%] pt-[15%] text-white"
