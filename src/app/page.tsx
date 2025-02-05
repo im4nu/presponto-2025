@@ -80,7 +80,7 @@ interface PostProps {
   inverted?: boolean;
 }
 
-export function FeedbackCard({ inverted }: PostProps) {
+function FeedbackCard({ inverted }: PostProps) {
   return (
     <div
       className={cn(
