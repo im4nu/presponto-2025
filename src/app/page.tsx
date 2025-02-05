@@ -241,7 +241,7 @@ export default async function Home() {
       </main>
 
       <div className="bg-main josefin-sans hidden h-screen w-screen items-center justify-center md:flex">
-        <div className="flex w-1/3 flex-col items-center justify-center gap-12 rounded-lg bg-white px-4 py-6 text-center text-gray-800">
+        <div className="flex w-1/3 min-w-[400px] flex-col items-center justify-center gap-12 rounded-lg bg-white px-4 py-6 text-center text-gray-800">
           <p className="text-2xl">Atenção!</p>
           <Image
             alt="Ilustração de telegone"
