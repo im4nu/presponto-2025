@@ -131,7 +131,13 @@ export default async function Home() {
             <Carousel className="w-full max-w-[50vw]">
               <CarouselContent>
                 <CarouselItem className="flex w-full items-center justify-center">
-                  <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+                  <Image
+                    src={"/place_1.jpeg"}
+                    alt="Imagem do ateliê"
+                    width={512}
+                    height={512}
+                    className="flex h-[200px] w-[200px] rounded-lg border border-white"
+                  ></Image>
                 </CarouselItem>
                 <CarouselItem className="flex w-full items-center justify-center">
                   <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
