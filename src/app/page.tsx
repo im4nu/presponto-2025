@@ -136,7 +136,8 @@ export default async function Home() {
                     alt="Imagem do ateliê"
                     width={512}
                     height={512}
-                    className="flex h-[200px] w-[200px] rounded-lg border border-white"
+                    objectFit="cover"
+                    className="flex h-[200px] w-[200px] rounded-lg border border-white object-cover"
                   ></Image>
                 </CarouselItem>
                 <CarouselItem className="flex w-full items-center justify-center">
