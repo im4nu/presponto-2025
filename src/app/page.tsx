@@ -26,7 +26,7 @@ export default async function Home() {
 
   return (
     <HydrateClient>
-      <main className="josefin-sans flex h-full min-h-screen flex-col md:hidden">
+      <main className="josefin-sans flex h-full min-h-screen flex-col md:z-10 md:opacity-0">
         <nav className="fixed left-0 top-0 flex w-full items-center justify-between bg-white/20 px-12 py-6 backdrop-blur-md">
           <Image
             alt={"Logomarca"}
@@ -92,7 +92,7 @@ export default async function Home() {
 
         <section
           id="feedbacks"
-          className="bg-main flex h-full w-full flex-col items-start p-[5%] text-white"
+          className="flex h-full w-full flex-col items-start bg-main p-[5%] text-white"
         >
           <div className="flex flex-col items-center gap-2 text-center">
             <p className="text-xl font-bold">Depoimentos</p>
@@ -218,7 +218,7 @@ export default async function Home() {
 
         <footer
           id="footer"
-          className="text-text bg-main mt-12 flex h-full w-full flex-col items-center gap-2 p-[5%] py-12 text-white"
+          className="text-text mt-12 flex h-full w-full flex-col items-center gap-2 bg-main p-[5%] py-12 text-white"
         >
           <Image
             alt={"Logomarca"}
@@ -240,7 +240,7 @@ export default async function Home() {
         </a>
       </main>
 
-      <div className="bg-main josefin-sans hidden h-screen w-screen items-center justify-center md:flex">
+      <div className="josefin-sans absolute left-0 top-0 z-30 hidden h-screen w-screen items-center justify-center bg-main md:flex">
         <div className="flex w-1/3 min-w-[400px] flex-col items-center justify-center gap-12 rounded-lg bg-white px-4 py-6 text-center text-gray-800">
           <p className="text-2xl">Atenção!</p>
           <Image
