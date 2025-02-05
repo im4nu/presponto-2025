@@ -137,7 +137,7 @@ export default async function Home() {
                     width={512}
                     height={512}
                     objectFit="cover"
-                    className="flex h-[200px] w-[200px] rounded-lg border border-white object-cover"
+                    className="flex h-[300px] w-[300px] rounded-lg border border-white object-cover"
                   ></Image>
                 </CarouselItem>
                 <CarouselItem className="flex w-full items-center justify-center">
