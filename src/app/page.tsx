@@ -26,7 +26,7 @@ export default async function Home() {
 
   return (
     <HydrateClient>
-      <main className="josefin-sans flex h-full min-h-screen flex-col">
+      <main className="josefin-sans flex h-full min-h-screen flex-col md:hidden">
         <nav className="fixed left-0 top-0 flex w-full items-center justify-between bg-white/20 px-12 py-6 backdrop-blur-md">
           <Image
             alt={"Logomarca"}
@@ -239,6 +239,22 @@ export default async function Home() {
           <ArrowUpIcon className="h-4 w-4 text-white" />
         </a>
       </main>
+
+      <div className="bg-main josefin-sans hidden h-screen w-screen items-center justify-center md:flex">
+        <div className="flex w-1/3 flex-col items-center justify-center gap-12 rounded-lg bg-white px-4 py-6 text-center text-gray-800">
+          <p className="text-2xl">Atenção!</p>
+          <Image
+            alt="Ilustração de telegone"
+            src={"/mobile_ilu.svg"}
+            width={678.62 / 3}
+            height={606.19 / 3}
+          />
+          <p className="opacity-70">
+            Este site ainda está sendo desenvolvido para computadores, laptops e
+            tablets. Por enquanto tente acessar pelo seu telefone.
+          </p>
+        </div>
+      </div>
     </HydrateClient>
   );
 }
