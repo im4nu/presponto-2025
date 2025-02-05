@@ -10,9 +10,20 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+enum statusEnum {
+    ACTIVE
+    INACTIVE
+}
+
 model Post {
     id        Int      @id @default(autoincrement())
     name      String
+    description String?
+    rate     Float?
+    imageKey String?
+    membershipDuration Int?
+    status    statusEnum @default(ACTIVE)
+
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 

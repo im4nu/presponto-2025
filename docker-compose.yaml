@@ -1,21 +1,5 @@
-version: "3.7"
-
 services:
   database:
-    image: mariadb:latest
-    container_name: presponto_database
-    ports:
-      - 3306:3306
-    environment:
-      - MARIADB_DATABASE=presponto
-      - MARIADB_PORT=3306
-      - MARIADB_ROOT_PASSWORD=12345
-    volumes:
-      - presponto_data:/var/lib/mysql
-    networks:
-      - presponto_net
-
-  database2:
     image: postgres:latest
     container_name: presponto_database2
     ports:
