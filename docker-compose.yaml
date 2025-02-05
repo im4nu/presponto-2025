@@ -1,0 +1,56 @@
+version: "3.7"
+
+services:
+  database:
+    image: mariadb:latest
+    container_name: presponto_database
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_DATABASE=presponto
+      - MARIADB_PORT=3306
+      - MARIADB_ROOT_PASSWORD=12345
+    volumes:
+      - presponto_data:/var/lib/mysql
+    networks:
+      - presponto_net
+
+  database2:
+    image: postgres:latest
+    container_name: presponto_database2
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=presponto
+      - POSTGRES_USER=presponto
+      - POSTGRES_PASSWORD=12345
+    volumes:
+      - presponto_data2:/var/lib/postgresql/data
+    networks:
+      - presponto_net
+
+  storage:
+    image: minio/minio
+    container_name: presponto-minio
+    ports:
+      - 9000:9000
+      - 41277:41277
+    environment:
+      MINIO_ACCESS_KEY: 4ce753c0b96c69c08e6dac5e02d20989 # generated using node's crypto.randomBytes
+      MINIO_SECRET_KEY: 6bf480e68cddeabcc7f00c4566ddd076 # generated using node's crypto.randomBytes
+      MINIO_REGION: us-east-2
+      MINIO_HTTP_PORT: 9000
+    command: minio server /data --console-address 0.0.0.0:41277
+    volumes:
+      - ./minio-data:/data
+
+networks:
+  presponto_net:
+    driver: bridge
+
+volumes:
+  presponto_data:
+    driver: local
+
+  presponto_data2:
+    driver: local
