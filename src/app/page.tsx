@@ -2,7 +2,11 @@
 
 // import { LatestPost } from "~/app/_components/post";
 // import { api, HydrateClient } from "~/trpc/server";
-import { Bars3Icon, ChevronDoubleDownIcon } from "@heroicons/react/16/solid";
+import {
+  ArrowUpIcon,
+  Bars3Icon,
+  ChevronDoubleDownIcon,
+} from "@heroicons/react/16/solid";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { HydrateClient } from "~/trpc/server";
@@ -227,6 +231,13 @@ export default async function Home() {
             Design e desenvolvimento por Emmanuel Rodrigues
           </p>
         </footer>
+
+        <a
+          href="#"
+          className="fixed bottom-4 right-4 flex h-12 w-12 items-center justify-center rounded-full border border-white bg-white/10 p-4"
+        >
+          <ArrowUpIcon className="h-4 w-4 text-white" />
+        </a>
       </main>
     </HydrateClient>
   );
