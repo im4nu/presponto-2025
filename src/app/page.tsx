@@ -35,9 +35,30 @@ export default async function Home() {
 
           <div className="flex w-full flex-col items-center gap-4">
             <div className="flex flex-row gap-4">
-              <div className="flex h-[70px] w-[70px] rounded-lg border border-white bg-white/40"></div>
-              <div className="flex h-[70px] w-[70px] rounded-lg border border-white bg-white/40"></div>
-              <div className="flex h-[70px] w-[70px] rounded-lg border border-white bg-white/40"></div>
+              <Image
+                src={"/saint_antony.jpg"}
+                alt="Imagem de cultura da região do cariri"
+                width={250}
+                height={250}
+                objectFit="cover"
+                className="h-[70px] w-[70px] rounded-lg border border-white object-cover"
+              ></Image>
+              <Image
+                src={"/araripe_bird.jpg"}
+                alt="Imagem de cultura da região do cariri"
+                width={250}
+                height={250}
+                objectFit="cover"
+                className="h-[70px] w-[70px] rounded-lg border border-white object-cover"
+              ></Image>
+              <Image
+                src={"/juazeiro_city.jpg"}
+                alt="Imagem de cultura da região do cariri"
+                width={250}
+                height={250}
+                objectFit="cover"
+                className="h-[70px] w-[70px] rounded-lg border border-white object-center"
+              ></Image>
             </div>
 
             <h2 className="text-center">
