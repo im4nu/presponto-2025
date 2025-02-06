@@ -50,6 +50,8 @@ export default function PostFeedbackDialog() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       usginVideo: true,
+      videoUrl: "",
+      name: "",
     },
   });
 
@@ -111,7 +113,10 @@ export default function PostFeedbackDialog() {
         </DialogHeader>
 
         <Form {...form}>
-          <form className="flex w-full flex-col items-start gap-4">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex w-full flex-col items-start gap-4"
+          >
             <FormField
               control={form.control}
               name="name"
@@ -298,8 +303,7 @@ export default function PostFeedbackDialog() {
 
             <DialogFooter className="mt-4">
               <Button
-                type="button"
-                onClick={form.handleSubmit(onSubmit, console.log)}
+                type="submit"
                 variant={"secondary"}
                 disabled={registerNewFeedback.isPending}
               >
