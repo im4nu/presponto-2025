@@ -1,11 +1,41 @@
-import { StarIcon } from "@heroicons/react/16/solid";
+"use client";
+
+import { $Enums } from "@prisma/client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { cn } from "~/lib/utils";
 
 interface PostProps {
   inverted?: boolean;
+  post: {
+    id: number;
+    name: string;
+    description: string | null;
+    videoUrl: string | null;
+    rate: string | null;
+    membershipDuration: string | null;
+    status: $Enums.statusEnum;
+    usingVideo: boolean;
+    imageKey: string | null;
+    createdAt: Date;
+    updatedAt: Date;
+  };
 }
 
-export default function FeedbackCard({ inverted }: PostProps) {
+export default function FeedbackCard({ inverted, post }: PostProps) {
+  const [image, setImage] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  const videoUrl = post.videoUrl;
+  const videoIdMatch = /\/shorts\/([a-zA-Z0-9_-]+)/.exec(videoUrl ?? "");
+  const videoId = videoIdMatch ? videoIdMatch[1] : null;
+  const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+
+  useEffect(() => {
+    if (post) {
+      if (post.imageKey) setImageUrl(post.imageKey);
+    }
+  }, []);
   return (
     <div
       className={cn(
@@ -13,27 +43,42 @@ export default function FeedbackCard({ inverted }: PostProps) {
         inverted && "flex-row-reverse",
       )}
     >
-      <div className="flex h-full w-[60%] rounded-lg border border-white bg-white/40"></div>
+      {post.usingVideo && embedUrl ? (
+        <iframe
+          src={embedUrl}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          className="h-full w-[60%] rounded-lg"
+        ></iframe>
+      ) : (
+        <Image
+          src={image ? URL.createObjectURL(image) : (imageUrl ?? "/hero.png")}
+          width={150}
+          height={200}
+          alt="Imagem do cliente deste depoimento"
+          className="flex h-full w-[60%] rounded-lg border border-white"
+        />
+      )}
 
       <div className="flex w-[40%] flex-col items-center justify-start gap-6 py-4">
         <div className="flex w-full flex-col">
-          <p className="text-2xl font-bold">Nome do cliente</p>
-          <p className="text-xs text-white/70">01/02/2025</p>
+          <p className="text-2xl font-bold">{post.name}</p>
+          <p className="text-xs text-white/70">{post.createdAt.toString()}</p>
         </div>
 
         <div className="flex w-full flex-col">
           <p className="text-lg font-bold">Avaliação</p>
-          <p>5 Estelas</p>
+          <p>{post.rate} Estelas</p>
           <div className="flex">
-            {new Array(5).fill(0).map((_, i) => (
+            {/* {Array.from({ length: post.rate ?? 0 }).map((_, i) => (
               <StarIcon className="h-4 w-4 fill-white/80" key={i} />
-            ))}
+            ))} */}
           </div>
         </div>
 
         <div className="flex w-full flex-col">
           <p className="text-lg font-bold">Já é cliente a:</p>
-          <p>Mais de 5 anos</p>
+          <p>Mais de {post.membershipDuration} anos</p>
         </div>
       </div>
     </div>

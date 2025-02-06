@@ -6,11 +6,13 @@ export const postValidator = z.object({
     .string()
     .min(1, { message: "Você precisa informar a descrição" }),
   image: z.string().optional(),
+  videoUrl: z.string().optional(),
+  usginVideo: z.boolean(),
   rate: z
-    .number()
+    .string()
     .min(1, { message: "Você precisa informar a nota" })
     .max(5, { message: "A nota precisa ser entre 1 e 5" }),
-  membershipDuration: z.number().min(1, {
-    message: "Você precisa informar o tempo em anos desde que você é cliente",
+  membershipDuration: z.string().min(1, {
+    message: "Você precisa informar a quanto tempo é cliente",
   }),
 });

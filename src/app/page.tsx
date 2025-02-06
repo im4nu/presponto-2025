@@ -99,8 +99,8 @@ export default async function Home() {
           </div>
 
           <div className="flex w-full flex-col gap-12 py-12">
-            {listPosts.map((_, i) => (
-              <FeedbackCard key={i} inverted={i % 2 === 0} />
+            {listPosts.map((post, i) => (
+              <FeedbackCard post={post} key={i} inverted={i % 2 === 0} />
             ))}
 
             {listPosts.length === 0 && (

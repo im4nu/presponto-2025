@@ -19,10 +19,13 @@ model Post {
     id        Int      @id @default(autoincrement())
     name      String
     description String?
-    rate     Float?
-    imageKey String?
-    membershipDuration Int?
+    rate     String?
+    membershipDuration String?
     status    statusEnum @default(ACTIVE)
+
+    usingVideo Boolean
+    imageKey String?
+    videoUrl String?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

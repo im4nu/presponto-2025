@@ -23,6 +23,8 @@ export const postRouter = createTRPCRouter({
           description: input.description,
           membershipDuration: input.membershipDuration,
           rate: input.rate,
+          videoUrl: input.videoUrl,
+          usingVideo: input.usginVideo ?? null,
           createdAt: new Date(),
           updatedAt: new Date(),
           imageKey: key,
