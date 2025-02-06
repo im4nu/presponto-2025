@@ -11,31 +11,28 @@ export const postRouter = createTRPCRouter({
 
       let key = undefined;
       let presignedUrl = undefined;
-      if (input.imageKey) {
-        key = `presponto/${input.name}/${id}.png`;
+
+      if (input.image) {
+        key = `presponto/${id}.png`;
         presignedUrl = await getPresignedPost(key);
       }
 
       await ctx.db.post.create({
         data: {
           name: input.name,
-          createdAt: new Date(),
           description: input.description,
-          imageKey: input.imageKey,
           membershipDuration: input.membershipDuration,
           rate: input.rate,
+          createdAt: new Date(),
           updatedAt: new Date(),
+          imageKey: key,
         },
       });
 
       return { presignedUrl };
     }),
 
-  getLatest: publicProcedure.query(async ({ ctx }) => {
-    const post = await ctx.db.post.findFirst({
-      orderBy: { createdAt: "desc" },
-    });
-
-    return post ?? null;
+  list: publicProcedure.query(async ({ ctx }) => {
+    return await ctx.db.post.findMany();
   }),
 });

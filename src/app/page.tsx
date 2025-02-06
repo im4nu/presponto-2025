@@ -1,7 +1,5 @@
-// import Link from "next/link";
+import { api } from "~/trpc/server";
 
-// import { LatestPost } from "~/app/_components/post";
-// import { api, HydrateClient } from "~/trpc/server";
 import {
   ArrowUpIcon,
   Bars3Icon,
@@ -18,11 +16,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "~/components/ui/carousel";
+import PostFeedbackDialog from "./_components/postFeedbackDialog";
 
 export default async function Home() {
-  // const hello = await api.post.hello({ text: "from tRPC" });
-
-  // void api.post.getLatest.prefetch();
+  const listPosts = await api.post.list();
 
   return (
     <HydrateClient>
@@ -102,16 +99,23 @@ export default async function Home() {
           </div>
 
           <div className="flex w-full flex-col gap-12 py-12">
-            {new Array(3).fill(0).map((_, i) => (
+            {listPosts.map((_, i) => (
               <FeedbackCard key={i} inverted={i % 2 === 0} />
             ))}
+
+            {listPosts.length === 0 && (
+              <p className="w-full text-center">
+                Nenhum depoimento foi encontrado. Seja o primeiro a deixar um!
+              </p>
+            )}
           </div>
 
           <div className="flex w-full flex-col items-center justify-center gap-4">
             <Button variant={"outline"} size={"lg"}>
               Ver todos os depoimentos
             </Button>
-            <Button size={"lg"}>Deixar um depoimento</Button>
+
+            <PostFeedbackDialog />
           </div>
         </section>
 

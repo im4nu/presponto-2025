@@ -5,14 +5,12 @@ export const postValidator = z.object({
   description: z
     .string()
     .min(1, { message: "Você precisa informar a descrição" }),
-  imageKey: z.string().min(1, { message: "Você precisa informar a imagem" }),
+  image: z.string().optional(),
   rate: z
     .number()
     .min(1, { message: "Você precisa informar a nota" })
     .max(5, { message: "A nota precisa ser entre 1 e 5" }),
-  membershipDuration: z
-    .number()
-    .min(1, {
-      message: "Você precisa informar o tempo em anos desde que você é cliente",
-    }),
+  membershipDuration: z.number().min(1, {
+    message: "Você precisa informar o tempo em anos desde que você é cliente",
+  }),
 });
