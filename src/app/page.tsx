@@ -138,7 +138,7 @@ export default async function Home() {
           <div className="max-w-screen flex w-full items-center justify-center py-6">
             <Carousel className="w-full max-w-[50vw]">
               <CarouselContent>
-                <CarouselItem className="flex w-full items-center justify-center">
+                {/* <CarouselItem className="flex w-full items-center justify-center">
                   <Image
                     src={"/place_1.jpeg"}
                     alt="Imagem do ateliê"
@@ -146,13 +146,47 @@ export default async function Home() {
                     height={512}
                     objectFit="cover"
                     className="flex h-[300px] w-[300px] rounded-lg border border-white object-cover"
-                  ></Image>
+                  />
+                </CarouselItem> */}
+                <CarouselItem className="flex w-full items-center justify-center">
+                  <Image
+                    src={"/client_1.jpeg"}
+                    alt="Imagem do ateliê"
+                    width={512}
+                    height={512}
+                    objectFit="cover"
+                    className="flex h-[300px] w-[300px] rounded-lg border border-white object-cover"
+                  />
                 </CarouselItem>
                 <CarouselItem className="flex w-full items-center justify-center">
-                  <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+                  <Image
+                    src={"/client_2.jpeg"}
+                    alt="Imagem do ateliê"
+                    width={512}
+                    height={512}
+                    objectFit="cover"
+                    className="flex h-[300px] w-[300px] rounded-lg border border-white object-cover"
+                  />
                 </CarouselItem>
                 <CarouselItem className="flex w-full items-center justify-center">
-                  <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+                  <Image
+                    src={"/client_3.jpeg"}
+                    alt="Imagem do ateliê"
+                    width={512}
+                    height={512}
+                    objectFit="cover"
+                    className="flex h-[300px] w-[300px] rounded-lg border border-white object-cover"
+                  />
+                </CarouselItem>
+                <CarouselItem className="flex w-full items-center justify-center">
+                  <Image
+                    src={"/client_4.jpeg"}
+                    alt="Imagem do ateliê"
+                    width={512}
+                    height={512}
+                    objectFit="cover"
+                    className="flex h-[300px] w-[300px] rounded-lg border border-white object-cover"
+                  />
                 </CarouselItem>
               </CarouselContent>
               <CarouselPrevious />
@@ -160,15 +194,37 @@ export default async function Home() {
             </Carousel>
           </div>
           <p className="w-2/3 text-center text-xs">
-            Contamos com um ambiente acochegante e bem climatizado.
+            Veja alguns de nossos clientes satisfeitos com nossos serviços.{" "}
+            <b>Aqui a conexão é real,</b> vamos além de concertos de roupas!
           </p>
 
           <div className="flex flex-col items-center gap-2 pt-12 text-center">
             <p>Temos material e maquinário de tecnologia de ponta.</p>
             <div className="flex flex-row gap-4">
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <Image
+                src={"/machine_1.jpeg"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
+              <Image
+                src={"/machine_2.jpeg"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
+              <Image
+                src={"/machine_3.jpeg"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
             </div>
             <p className="text-xs opacity-70">
               Aqui sua roupa recebe tratamento especial!
@@ -178,30 +234,69 @@ export default async function Home() {
           <div className="flex flex-col items-center gap-2 pt-12 text-center">
             <p>Somos os mais profissionais da região.</p>
             <div className="flex flex-row gap-4">
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <Image
+                src={"/site.png"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
+              <Image
+                src={"/maps.png"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
+              <Image
+                src={"/insta.png"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
             </div>
             <p className="text-xs opacity-70">
-              Investimos em tecnologias como site prórpio, google maps, e muito
-              mais pois acreditamos no potencial que a tecnologia traz.
+              Investimos em tecnologias como site prórpio, google maps,
+              instagram e muito mais. Pois acreditamos no potencial que a
+              tecnologia traz.
             </p>
           </div>
 
           <div className="flex flex-col items-center gap-2 pt-12 text-center">
-            <p>Nosso atendimento ultrapassa fronteiras.</p>
+            <p>Espaço acolhedor e confortável.</p>
             <div className="flex flex-row gap-4">
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
-              <div className="flex h-[100px] w-[100px] rounded-lg border border-white bg-gray-800/40"></div>
+              <Image
+                src={"/place_1.jpeg"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
+              <Image
+                src={"/place_1.jpeg"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
+              <Image
+                src={"/place_1.jpeg"}
+                alt="Máquina de costura"
+                height={100}
+                width={100}
+                objectFit="cover"
+                className="flex h-[100px] w-[100px] rounded-lg border border-white object-cover"
+              />
             </div>
             <p className="text-xs opacity-70">
-              Temos clientes em países como: Portugal, Argentina, Estado Unidos,
-              Canadá e mais...
-            </p>
-            <p className="text-[10px] opacity-60">
-              Eles esperam vir visitar seus familiares aqui no brasil para
-              trazer roupas para concerto.
+              Contamos com estacionamento aberto e gratuito para nossos
+              clientes.
             </p>
           </div>
         </section>
