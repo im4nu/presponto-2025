@@ -48,11 +48,6 @@ export default function PostFeedbackDialog() {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      description: "",
-      image: "",
-      rate: "0",
-      membershipDuration: "0",
       usginVideo: true,
     },
   });
@@ -306,7 +301,7 @@ export default function PostFeedbackDialog() {
             <DialogFooter className="mt-4">
               <Button
                 type="button"
-                onClick={() => form.handleSubmit(onSubmit)}
+                onClick={form.handleSubmit(onSubmit, console.log)}
                 variant={"secondary"}
                 disabled={registerNewFeedback.isPending}
               >
