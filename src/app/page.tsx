@@ -6,7 +6,6 @@ import {
   ChevronDoubleDownIcon,
 } from "@heroicons/react/16/solid";
 import Image from "next/image";
-import { Button } from "~/components/ui/button";
 import { HydrateClient } from "~/trpc/server";
 import FeedbackCard from "./_components/FeedbackCard";
 import {
@@ -111,9 +110,14 @@ export default async function Home() {
           </div>
 
           <div className="flex w-full flex-col items-center justify-center gap-4">
-            <Button variant={"outline"} size={"lg"}>
+            {/* <Button variant={"outline"} size={"lg"}>
               Ver todos os depoimentos
-            </Button>
+            </Button> */}
+
+            <p>
+              Esses depoimentos são de pessoais reais e você pode fazer um
+              também!
+            </p>
 
             <PostFeedbackDialog />
           </div>
