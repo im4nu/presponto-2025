@@ -138,10 +138,17 @@ export default function PostFeedbackDialog() {
                       <Switch
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        disabled
+                        className="disabled:opacity-70"
                       />
                       <p className="text-xs opacity-70">Sim</p>
                     </div>
                   </FormControl>
+                  <Label className="text-xs text-main">
+                    <b>Nota:</b> Estamos trabalhando para que em breve seja
+                    possível deixar depoimentos com imagens, por enquanto envie
+                    um vídeo mesmo.
+                  </Label>
                   <FormMessage />
                 </FormItem>
               )}
@@ -157,6 +164,11 @@ export default function PostFeedbackDialog() {
                     <FormControl>
                       <Input placeholder="Cole o link do vídeo" {...field} />
                     </FormControl>
+                    <Label className="text-xs text-main">
+                      <b>Nota:</b> Você deve publicar o vídeo no youtube como um
+                      short (vídeo curto) e depois copiar o link dele e colocar
+                      aqui.
+                    </Label>
                     <FormMessage />
                   </FormItem>
                 )}
