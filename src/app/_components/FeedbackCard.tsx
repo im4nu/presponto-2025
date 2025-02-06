@@ -1,9 +1,12 @@
 "use client";
 
+import { StarIcon } from "@heroicons/react/16/solid";
 import { $Enums } from "@prisma/client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "~/lib/utils";
+import { formateToDate } from "~/utils/date-and-time";
+import { membershipDurationOptions } from "~/utils/options";
 
 interface PostProps {
   inverted?: boolean;
@@ -31,6 +34,9 @@ export default function FeedbackCard({ inverted, post }: PostProps) {
   const videoId = videoIdMatch ? videoIdMatch[1] : null;
   const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : null;
 
+  const membershipDurationLabel = membershipDurationOptions.find(
+    (option) => option.value === post.membershipDuration,
+  )?.label;
   useEffect(() => {
     if (post) {
       if (post.imageKey) setImageUrl(post.imageKey);
@@ -63,22 +69,24 @@ export default function FeedbackCard({ inverted, post }: PostProps) {
       <div className="flex w-[40%] flex-col items-center justify-start gap-6 py-4">
         <div className="flex w-full flex-col">
           <p className="text-2xl font-bold">{post.name}</p>
-          <p className="text-xs text-white/70">{post.createdAt.toString()}</p>
+          <p className="text-xs text-white/70">
+            {formateToDate(post.createdAt)}
+          </p>
         </div>
 
         <div className="flex w-full flex-col">
           <p className="text-lg font-bold">Avaliação</p>
-          <p>{post.rate} Estelas</p>
-          <div className="flex">
-            {/* {Array.from({ length: post.rate ?? 0 }).map((_, i) => (
+          <p className="opacity-70">{post.rate} Estelas</p>
+          <div className="flex opacity-70">
+            {Array.from({ length: Number(post.rate) || 0 }).map((_, i) => (
               <StarIcon className="h-4 w-4 fill-white/80" key={i} />
-            ))} */}
+            ))}
           </div>
         </div>
 
         <div className="flex w-full flex-col">
           <p className="text-lg font-bold">Já é cliente a:</p>
-          <p>Mais de {post.membershipDuration} anos</p>
+          <p className="opacity-70">{membershipDurationLabel}</p>
         </div>
       </div>
     </div>

@@ -3,8 +3,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
+import { StarIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import { z } from "zod";
+import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Button } from "~/components/ui/button";
 import {
   Dialog,
@@ -24,10 +26,7 @@ import {
   FormMessage,
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-import { api } from "~/trpc/react";
-import { postValidator } from "~/utils/validators/post";
-import { uploadFileToS3 } from "~/utils/upload-file-to-s3";
-import { Switch } from "~/components/ui/switch";
+import { Label } from "~/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -35,11 +34,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { StarIcon } from "@heroicons/react/16/solid";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
-import { Label } from "~/components/ui/label";
-import { Textarea } from "~/components/ui/textarea";
 import { Spinner } from "~/components/ui/spinner";
+import { Switch } from "~/components/ui/switch";
+import { Textarea } from "~/components/ui/textarea";
+import { api } from "~/trpc/react";
+import { membershipDurationOptions, rateOptions } from "~/utils/options";
+import { uploadFileToS3 } from "~/utils/upload-file-to-s3";
+import { postValidator } from "~/utils/validators/post";
 
 const formSchema = postValidator;
 
@@ -89,21 +90,6 @@ export default function PostFeedbackDialog() {
     }
   };
 
-  const membershipDurationOptions = [
-    { label: "Menos de 6 meses", value: "0" },
-    { label: "6 meses a 1 ano", value: "1" },
-    { label: "1 a 2 anos", value: "2" },
-    { label: "2 a 3 anos", value: "3" },
-    { label: "Mais de 3 anos", value: "4" },
-  ];
-
-  const rateOptions = [
-    { label: 1, value: "1" },
-    { label: 2, value: "2" },
-    { label: 3, value: "3" },
-    { label: 4, value: "4" },
-    { label: 5, value: "5" },
-  ];
   return (
     <Dialog
       open={dialogState}

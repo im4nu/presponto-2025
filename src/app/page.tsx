@@ -114,7 +114,7 @@ export default async function Home() {
               Ver todos os depoimentos
             </Button> */}
 
-            <p>
+            <p className="w-full text-center text-xs">
               Esses depoimentos são de pessoais reais e você pode fazer um
               também!
             </p>
