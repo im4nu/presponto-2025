@@ -39,6 +39,7 @@ import { StarIcon } from "@heroicons/react/16/solid";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Label } from "~/components/ui/label";
 import { Textarea } from "~/components/ui/textarea";
+import { Spinner } from "~/components/ui/spinner";
 
 const formSchema = postValidator;
 
@@ -61,6 +62,8 @@ export default function PostFeedbackDialog() {
   const registerNewFeedback = api.post.create.useMutation();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log("oi");
+
     registerNewFeedback.mutate(
       { ...values },
       {
@@ -127,10 +130,7 @@ export default function PostFeedbackDialog() {
         </DialogHeader>
 
         <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="flex w-full flex-col items-start gap-4"
-          >
+          <form className="flex w-full flex-col items-start gap-4">
             <FormField
               control={form.control}
               name="name"
@@ -283,7 +283,7 @@ export default function PostFeedbackDialog() {
               )}
             />
 
-            {form.watch("usginVideo") && (
+            {form.watch("usginVideo") === false && (
               <FormField
                 control={form.control}
                 name="description"
@@ -304,8 +304,17 @@ export default function PostFeedbackDialog() {
             )}
 
             <DialogFooter className="mt-4">
-              <Button type="submit" variant={"secondary"}>
-                Enviar depoimento
+              <Button
+                type="button"
+                onClick={() => form.handleSubmit(onSubmit)}
+                variant={"secondary"}
+                disabled={registerNewFeedback.isPending}
+              >
+                {registerNewFeedback.isPending ? (
+                  <Spinner />
+                ) : (
+                  "Enviar depoimento"
+                )}
               </Button>
             </DialogFooter>
           </form>
