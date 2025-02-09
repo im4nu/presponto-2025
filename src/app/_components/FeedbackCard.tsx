@@ -30,18 +30,22 @@ export default function FeedbackCard({ inverted, post }: PostProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const videoUrl = post.videoUrl;
-  const videoIdMatch = /\/shorts\/([a-zA-Z0-9_-]+)/.exec(videoUrl ?? "");
+  const videoIdMatch = videoUrl?.match(
+    /(?:\/shorts\/|youtu\.be\/)([a-zA-Z0-9_-]+)/,
+  );
   const videoId = videoIdMatch ? videoIdMatch[1] : null;
   const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : null;
 
   const membershipDurationLabel = membershipDurationOptions.find(
     (option) => option.value === post.membershipDuration,
   )?.label;
+
   useEffect(() => {
     if (post) {
       if (post.imageKey) setImageUrl(post.imageKey);
     }
   }, []);
+
   return (
     <div
       className={cn(
