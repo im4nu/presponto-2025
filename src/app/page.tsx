@@ -1,10 +1,6 @@
 import { api } from "~/trpc/server";
 
-import {
-  ArrowUpIcon,
-  Bars3Icon,
-  ChevronDoubleDownIcon,
-} from "@heroicons/react/16/solid";
+import { ArrowUpIcon, ChevronDoubleDownIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
@@ -17,6 +13,7 @@ import {
 } from "~/components/ui/carousel";
 import { HydrateClient } from "~/trpc/server";
 import FeedbackCard from "./_components/FeedbackCard";
+import NavBar from "./_components/NavBar";
 import PostFeedbackDialog from "./_components/postFeedbackDialog";
 
 const whatsappMessage =
@@ -31,16 +28,7 @@ export default async function Home() {
   return (
     <HydrateClient>
       <main className="josefin-sans flex h-full min-h-screen flex-col md:z-10 md:opacity-0">
-        <nav className="fixed left-0 top-0 flex w-full items-center justify-between bg-white/20 px-12 py-6 backdrop-blur-md">
-          <Image
-            alt={"Logomarca"}
-            src={"/logo.svg"}
-            width={175 / 2}
-            height={72 / 2}
-          />
-
-          <Bars3Icon className="h-8 w-8 text-white" />
-        </nav>
+        <NavBar />
 
         <section
           id="home"
@@ -361,9 +349,13 @@ export default async function Home() {
             height={72 / 2}
           />
           <p className="text-xs">@2025 todos os direitos reservados</p>
-          <p className="text-[10px] opacity-70">
+          <Link
+            href={"https://www.omanu.blog"}
+            target="_blank"
+            className="text-[10px] underline opacity-70"
+          >
             Design e desenvolvimento por Emmanuel Rodrigues
-          </p>
+          </Link>
         </footer>
 
         <a
